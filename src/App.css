@@ -1,0 +1,109 @@
+/* 글꼴 */
+@font-face {
+    font-family: 'Ownglyph_meetme-Rg';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    background-color: #E4F7BA;
+}
+/* 초기화 */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 20px;
+    color: #333;
+    font-weight: 300;
+    font-family: 'Ownglyph_meetme-Rg';
+    text-align: center;
+}
+a{
+    color: #333;
+    /*text-decoration: none;*/
+}
+img{
+    display: block;
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: normal;
+    /*font-size: 14px;*/
+}
+.clearfix::after, .clearfix::before{
+    content: "";
+    display: block;
+    clear: both;
+}
+header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+header > h1 > a{
+    width: 300px;
+    margin: 0 auto;
+    border: 2px solid #9CAF72;
+    border-radius: 20px;
+    display: block;
+    text-decoration: none;
+}
+
+nav > li{
+    width: 300px;
+    margin: 0 auto;
+    text-align: left;
+    margin-bottom: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+article{
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 30px;
+    border: 2px solid #9CAF72;
+    /*text-overflow:ellipsis;*/
+    word-wrap: break-word;
+}
+article > h2{
+    text-decoration: underline;
+    padding-bottom: 10px;
+}
+ul{
+    padding-top: 30px;
+}
+ul > li{
+    margin-bottom: 10px;
+}
+input[type=text]{
+    margin-bottom: 10px;
+    border: 2px solid #9CAF72;
+    border-radius: 5px;
+}
+textarea{
+    width: 176px;
+    margin-bottom: 10px;
+    border: 2px solid #9CAF72;
+    border-radius: 5px;
+}
+input[type=submit]{
+    margin-bottom: 10px;
+    width: 70px;
+    background-color: #9CAF72;
+    border-radius: 5px;
+    border: none;
+}
+input[type=submit]:hover{
+    background-color: #C0D396;
+}
+input[type=button]{
+    width: 70px;
+    background-color: #9CAF72;
+    border-radius: 5px;
+    border: none;
+}
+input[type=button]:hover{
+    background-color: #C0D396;
+}

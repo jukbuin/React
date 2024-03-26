@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {useState} from 'react';
 
@@ -23,9 +22,7 @@ function Nav(props) {
         </li>)
     }
     return <nav>
-        <ol>
-            {lis}
-        </ol>
+        {lis}
     </nav>
 }
 
@@ -38,15 +35,15 @@ function Article(props) {
 
 function Create(props) {
     return <article>
-        <h2>Create</h2>
+        <h2>새로 만들기</h2>
         <form onSubmit={event => {
             event.preventDefault();
             const title = event.target.title.value;
             const body = event.target.body.value;
             props.onCreate(title, body);
         }}>
-            <p><input type="text" name="title" placeholder="title"/></p>
-            <p><textarea name="body" placeholder="body"></textarea></p>
+            <p><input type="text" name="title" placeholder="제목"/></p>
+            <p><textarea name="body" placeholder="내용"></textarea></p>
             <p><input type="submit" value="Create"/></p>
         </form>
 
@@ -57,7 +54,7 @@ function Update(props){
     const [title, setTitle] = useState(props.title);
     const [body, setBody] = useState(props.body);
     return <article>
-        <h2>Update</h2>
+        <h2>수정하기</h2>
         <form onSubmit={event => {
             event.preventDefault();
             const title = event.target.title.value;
@@ -80,14 +77,14 @@ function App() {
     const [id, setId] = useState(null);
     const [nextId, setNextId] = useState(4);
     const [topics, setTopics] = useState([
-        {id: 1, title: 'html', body: 'html is ....'},
-        {id: 2, title: 'css', body: 'css is ....'},
-        {id: 3, title: 'javascript', body: 'javascript is ....'}
+        {id: 1, title: '장보기 목록', body: '당근, 과자, 아이스크림'},
+        {id: 2, title: '화장품 목록', body: '아이크림, 토너, 선크림'},
+        {id: 3, title: '미강이 만나기', body: '2시 홈플러스'}
     ]);
     let content = null;
     let contextControl = null;
     if (mode === 'WELCOME') {
-        content = <Article title="Welcome" body="안녕 나의 메모장"></Article>
+        content = <Article title="상세보기" body="목록을 클릭하세요."></Article>
     } else if (mode === 'READ') {
         let title, body = null;
         for (let i = 0; i < topics.length; i++) {
@@ -101,7 +98,7 @@ function App() {
             <li><a href={'/update'+id} onClick={event => {
             event.preventDefault();
             setMode('UPDATE');
-            }}>Update</a></li>
+            }}>수정하기</a></li>
             <li><input type="button" value="Delete" onClick={()=>{
                 const newTopics = []
                 for(let i=0; i<topics.length; i++){
@@ -148,7 +145,7 @@ function App() {
 
     return (
         <div>
-            <Header title="나의 메모장`" onChangeMode={() => {
+            <Header title="나의 메모장" onChangeMode={() => {
                 setMode('WELCOME');
             }}></Header>
             <Nav topics={topics} onChangeMode={(_id) => {
@@ -160,7 +157,7 @@ function App() {
                 <li><a href="/create" onClick={event => {
                     event.preventDefault();
                     setMode('Create');
-                }}>Create</a></li>
+                }}>새로 만들기</a></li>
                 {contextControl}
             </ul>
         </div>
